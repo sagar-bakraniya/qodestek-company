@@ -1,0 +1,48 @@
+<div class="container h-100 d-flex justify-content-center">
+  <div class="align-self-center">
+    <mat-card class="align-self-center">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <p>
+            <mat-form-field class="w-100">
+              <input
+                type="text"
+                matInput
+                placeholder="Email"
+                formControlName="email"
+              />
+            </mat-form-field>
+          </p>
+          <mat-form-field class="w-100">
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              formControlName="password"
+            />
+          </mat-form-field>
+
+          <div class="button">
+            <button
+              type="submit"
+              class="w-100"
+              mat-raised-button
+              [disabled]="loginForm.invalid"
+              [color]="loginForm.valid ? 'primary' : ''"
+            >
+              Login
+            </button>
+          </div>
+
+          <p class="mt-2">
+            <span
+              >Donn't have an account ?
+              <a role="button" routerLink="/sign-up">Register now</a></span
+            >
+          </p>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

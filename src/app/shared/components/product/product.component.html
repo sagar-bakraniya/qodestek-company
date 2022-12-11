@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-subtitle>{{ product.title | slice : 0 : 30 }} </mat-card-subtitle>
+  </mat-card-header>
+  <div class="text-center">
+    <img
+      mat-card-image
+      class="product-image"
+      [src]="product.image"
+      alt="Photo of a Shiba Inu"
+    />
+    <span
+      (click)="addToFavorite(product)"
+      class="position-absolute"
+      style="right: 13px"
+    >
+      <button
+        mat-fab
+        [color]="product.isFavorite ? 'primary' : 'warning'"
+        [matTooltip]="
+          product.isFavorite ? 'Remove from favorite' : 'Add to favorite'
+        "
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </span>
+  </div>
+  <mat-card-content>
+    <p>{{ product.description | slice : 0 : 100 }}</p>
+  </mat-card-content>
+</mat-card>

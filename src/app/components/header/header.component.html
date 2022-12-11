@@ -1,0 +1,33 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button
+      routerLink="/dashboard/favorites"
+      mat-icon-button
+      [color]="(counte$ | async) ? 'warning' : ''"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      [matTooltip]="'View Favorite Products'"
+    >
+      <mat-icon>favorite</mat-icon>
+      {{ counte$ | async }}
+    </button>
+    <button
+      mat-button
+      routerLink="/dashboard"
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      [matTooltip]="'View Products'"
+    >
+      Products
+    </button>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item disabled="">Profile</button>
+      <button (click)="logout()" mat-menu-item>Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+</p>

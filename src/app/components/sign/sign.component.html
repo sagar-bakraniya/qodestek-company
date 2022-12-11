@@ -1,0 +1,65 @@
+<div class="container h-100 d-flex justify-content-center">
+  <div class="align-self-center">
+    <mat-card class="align-self-center">
+      <mat-card-title>Register</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="signUpForm" (ngSubmit)="registerUser()">
+          <mat-form-field class="w-100">
+            <input
+              type="text"
+              matInput
+              placeholder="Username"
+              formControlName="username"
+            />
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input
+              type="text"
+              class="w-100"
+              matInput
+              placeholder="Email"
+              formControlName="email"
+            />
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input
+              type="password"
+              matInput
+              class="w-100"
+              placeholder="Password"
+              formControlName="password"
+              (change)="handlePasswordChange()"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <input
+              type="password"
+              matInput
+              placeholder="Confnfirm Password"
+              formControlName="confirmPassword"
+            />
+          </mat-form-field>
+
+          <div class="button">
+            <button
+              type="submit"
+              [disabled]="signUpForm.invalid"
+              [color]="signUpForm.valid ? 'primary' : ''"
+              mat-raised-button
+              class="w-100"
+            >
+              Sign Up
+            </button>
+          </div>
+          <div class="mt-2">
+            <span
+              >Already have an account?
+              <a role="button" routerLink="/login">Login now</a></span
+            >
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
